@@ -1,0 +1,105 @@
+Slide 1: File Overview
+“Good morning/afternoon everyone. I’m Abhilekh Subedi, and today I’ll be presenting an overview of Files in the context of Operating Systems — covering how files are named, structured, and categorized by type. This is a fundamental topic in systems design and programming.”
+
+*****
+
+Slide 2: Introduction to Files
+“A file is a named collection of related data stored on secondary storage like hard drives or SSDs. Files act as logical units — meaning they represent structured or unstructured data created by processes, and they remain accessible even after the process ends. This persistence enables long-term data storage, software development, and much more.”
+
+*****
+
+Slide 3: Need for Files & File Naming
+“Files serve a vital need — they allow data created by processes to persist, be shared, and accessed by others.
+Naming is an essential part. While older systems had 8-character name limits, modern systems like ext4 and NTFS support file names up to 255 characters, including symbols and spaces. This flexibility improves organization and retrieval.”
+
+*****
+
+Slide 4: FAT, ext4, NTFS
+“These are common file systems:
+
+FAT or File Allocation Table was developed by Microsoft, known for simplicity, used in USB drives.
+
+ext4 is the default Linux file system, offering journaling and fast access.
+
+NTFS, used in Windows, supports permissions, compression, and large files.
+These file systems determine how data is organized, stored, and retrieved.”
+
+*****
+
+Slide 8: File Extensions
+“File extensions like .txt, .exe, or .jpg indicate the file’s format and purpose.
+They help the OS and users determine which program can open a file. For example, .html is used for web pages, while .mp3 indicates audio files.”
+
+*****
+
+Slide 9: File Structure
+“There are three major ways files can be structured:
+
+Byte Sequence: unstructured streams of bytes. Common for text or executable files. The OS doesn’t interpret the content.
+
+Record Sequence: structured records, used in databases or logs. Each record is a logical unit.
+
+Tree Structure: hierarchical layout where data is accessed like nodes — common in XML and directories.
+These structures affect how efficiently data is accessed.”
+
+*****
+
+Slide 13: File Types
+“Operating systems categorize files into types based on content and purpose. This allows the OS to process them differently. Common types include:
+
+Regular files
+
+Directory files
+
+Special files”
+
+*****
+
+Slide 15: Regular Files
+“Now let’s talk about Regular Files, which are the most common type of files in any operating system.
+Regular files store user data and come in two main forms: ASCII files and Binary files.
+They can contain text, program code, images, or any kind of user data — basically, anything that isn’t part of the file system structure like directories or devices.
+When we write code, save documents, or compile a program — we’re working with regular files.
+The OS treats regular files as data containers, and how that data is structured — readable or binary — depends on the application that creates or uses them.
+Let’s now break these down into ASCII and Binary files.”
+
+*****
+
+Slide 15: ASCII Files
+“ASCII files store human-readable text. Each character is encoded using ASCII or UTF-8, one byte per character.
+They’re line-based, easy to read and edit. Examples include .txt, .csv, or source code files like .cpp or .py.
+ASCII files are everywhere—this includes not only configuration files or code, but even stylized text output from terminal tools like Neofetch. The colorful logo and system data you see is made entirely with printable ASCII characters, and when saved, becomes a perfect example of an ASCII file."
+
+*****
+
+Slide 16: Binary Files
+“Binary files store machine-readable data — compact and efficient.
+They include everything from images to executables like .exe, .png, or .mp3.
+You can’t read them with a text editor — instead, specialized programs are required.”
+
+*****
+
+Slide 17: Directory Files
+“These are special files used to manage groups of files. A directory contains metadata and pointers to actual files.
+They support file organization using a hierarchical structure — like /home/user/Documents or C:\Program Files.
+They’re managed by the OS to enable search, access control, and nesting.”
+
+*****
+
+Slide 18: Special Files
+“Special files represent hardware devices or OS-level communication channels. Examples include:
+
+/dev/null: a dummy device
+
+/dev/sda: a storage device
+
+Pipes and sockets for inter-process communication.
+They’re not typical data files, but they’re essential to system-level operations.”
+
+*****
+
+To conclude, files are the foundation of how data is stored, accessed, and managed in any modern operating system.
+We’ve explored how files are named, structured, and categorized — from regular files like text and binary, to special and directory files that support the operating system's inner workings.
+Understanding file types and structures helps us write better programs, manage systems efficiently, and troubleshoot issues when they arise.
+Whether you're working with logs, source code, images, or devices — everything begins with files.
+Thank you for your attention — I hope this session helped you see just how central files are to everything we do in computing.
