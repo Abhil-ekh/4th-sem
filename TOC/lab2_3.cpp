@@ -109,9 +109,9 @@ int main() {
     }
 
     if (curr != -1 && dfaAccepting[curr])
-        cout << " Accepted (input is 1001)\n";
+        cout << "Accepted";
     else
-        cout << " Rejected (input is not 1001)\n";
+        cout << "Rejected";
 
     return 0;
 }

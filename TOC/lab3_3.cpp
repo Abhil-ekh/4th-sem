@@ -1,35 +1,41 @@
 #include <iostream>
-#include <vector>
-#include <map>
-#include <set>
-
+#include <string>
+#include <regex>
 using namespace std;
 
-struct Transition {
-    int from, to;
-    string symbol;
-};
+// DFA function
+bool dfa_accepts_1001(const string &input) {
+    int state = 0;
+    for (char c : input) {
+        switch (state) {
+            case 0: state = (c == '1') ? 1 : 5; break;
+            case 1: state = (c == '0') ? 2 : 5; break;
+            case 2: state = (c == '0') ? 3 : 5; break;
+            case 3: state = (c == '1') ? 4 : 5; break;
+            case 4: state = 5; break; // already accepted, any extra char ? dead
+            case 5: return false; // trap state
+        }
+    }
+    return (state == 4);
+}
 
 int main() {
-    // DFA with states q0 to q4 (0 to 4)
-    int states = 5;
-    int startState = 0;
-    int finalState = 4;
+    string str;
+    cout << "Enter a binary string: ";
+    cin >> str;
 
-    vector<Transition> transitions = {
-        {0, 1, "1"},
-        {1, 2, "0"},
-        {2, 3, "0"},
-        {3, 4, "1"}
-    };
+    // Using DFA
+    if (dfa_accepts_1001(str))
+        cout << "Accepted by DFA" << endl;
+    else
+        cout << "Rejected by DFA" << endl;
 
-    cout << "DFA Transitions:\n";
-    for (const auto& t : transitions) {
-        cout << "q" << t.from << " --" << t.symbol << "--> q" << t.to << endl;
-    }
-
-    cout << "\nSince the DFA accepts only one specific string, the regular expression is simply:\n";
-    cout << "\nRegular Expression: 1001" << endl;
+    // Using Regular Expression
+    regex re("^1001$");
+    if (regex_match(str, re))
+        cout << "Accepted by Regular Expression" << endl;
+    else
+        cout << "Rejected by Regular Expression" << endl;
 
     return 0;
 }

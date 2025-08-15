@@ -31,9 +31,10 @@ int main() {
             output = 1;
     }
 
-    cout << ((output == 1 && input.length() == 5) ?
-             "String ACCEPTED by Mealy machine (matched 'abbaa').\n" :
-             "String REJECTED by Mealy machine.\n");
+    if(output == 1 && input.length() == 5) 
+        cout << "Accepted";
+    else
+        cout << "Rejected";
 
     return 0;
 }

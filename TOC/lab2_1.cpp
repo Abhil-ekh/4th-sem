@@ -22,10 +22,10 @@ int main(){
 		}
 		else if (state==3){
 			if (c=='1')
-				state=3;
+				state=4;
 		}	
 	}	
-	if(state==3)
+	if(state==4)
 		cout<<"Accepted";
 	else
 		cout<<"Rejected";

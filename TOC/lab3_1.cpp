@@ -27,9 +27,9 @@ int main() {
     }
 
     if (state == 5 && input.length() == 5)
-        cout<<"String ACCEPTED by Moore machine (matched 'ababa').\n" ;
+        cout << "Accepted";
     else
-        cout<<"String REJECTED by Moore machine.\n";
+        cout << "Rejected";
 
     return 0;
 }
