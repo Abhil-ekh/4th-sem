@@ -28,8 +28,6 @@ INSERT INTO Departments VALUES
 (2, 'Controller'),
 (3, 'Dualist');
 
-DROP VIEW EmployeeDetails;
-
 CREATE VIEW EmployeeDetails AS
 SELECT emp_id, NAME, salary, department, dob
 FROM Employees;
@@ -60,3 +58,4 @@ JOIN
     Departments D ON E.dept_id = D.dept_id;
     
 SELECT * FROM EmployeeWithDept;
+DROP DATABASE db12
