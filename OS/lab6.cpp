@@ -77,7 +77,7 @@ void priorityPreemptive(Process p[], int n) {
     cout << "\n--- Preemptive Priority Scheduling ---\n";
     int time = 0, completed = 0;
     for (int i = 0; i < n; i++) p[i].rt = p[i].bt;
-
+    
     while (completed < n) {
         int idx=-1, best=1e9;
         for (int i=0;i<n;i++)
@@ -104,14 +104,13 @@ void priorityPreemptive(Process p[], int n) {
 }
 
 int main() {
-    int n; cout << "Enter number of processes: "; cin >> n;
+    int n; cout << "Enter number of processes: ";
+     cin >> n;
     Process p[20];
-    for (int i=0;i<n;i++) {
-        cout << "\nProcess " << i+1 << ":\n";
-        p[i].pid=i+1;
-        cout<<"BT: ";cin>>p[i].bt;
-        cout<<"AT: ";cin>>p[i].at;
-        cout<<"Priority: ";cin>>p[i].priority;
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Enter details for Process " << i + 1 << " (PID, Burst Time, Arrival Time, Priority): ";
+        cin >> p[i].pid >> p[i].bt >> p[i].at >> p[i].priority;
     }
     int q; cout << "\nEnter Time Quantum: "; cin >> q;
     roundRobin(p,n,q);
