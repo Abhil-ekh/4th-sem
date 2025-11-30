@@ -1,0 +1,91 @@
+vlan						ports
+
+switch> en					switch(config)# interface fa  0/1
+	config t						switchport mode address
+	VLAN 33							switchport address VLAN 33
+	name SOM						exit
+	exit							(repeat for others)
+	(repeat for 3 others)		switch#show VLAN
+
+trunking
+switch# config t
+	interface fa 0/7
+	switchport mode - trunk
+--------------------------------------------------------------------------------------------
+
+routing-(turn on port status of all router)(assign default gateway to all)
+
+router> en
+	config t
+	interface portname(fa 0/0)
+	ip address 199.12.244.1 255.255.255.0
+	exit
+	(do this for each port in every router)
+
+STATIC
+router(config)# ip route network id(195.12.2.0) subnet mask(255.255.255.0)
+		(do this for all network unknown to that particular router)
+	(repeat this for all routers)
+
+DYNAMIC(RIP)
+router# config t
+	router rip
+	version2
+	network 20.20.20.0
+	network 195.1.2.0
+
+OSPF
+router# config t
+	router OSPF 1
+	network 192.168.2.0 0.0.0.255 area 0
+	network 179.56.91.138 0.0.255.255 area 0
+	exit
+
+BGP
+router 0						router 1
+router# config t					
+	router bgp 300					router bgp 600
+	neighbor 122.0.0.2 remote as 600		122.0.0.1     300
+	network 192.123.21.0 mask 255.255.255.0		192.12.1.0   255.255.255.0
+--------------------------------------------------------------------------------------------
+
+
+DNS
+web server- click on it > services > http option > generate some html file
+dns server- click on it > services > dns option > name of site assign ip > add & save
+check - click on any pc > web browser > type dns or ip
+--------------------------------------------------------------------------------------------
+
+FTP
+server- services > ftp > ON > set username & pass > check all permissions & click add
+test
+pc1 - desktop > text editor > generate txt file & save
+	cmd > connect to server using username and password (ftp server_ip)
+	upload by put filename command
+pc2 - connect to same server using username and pass
+	fetch the file by get filename
+--------------------------------------------------------------------------------------------
+
+Firewall
+server- desktop > IPv4 > turn on services
+	deny ICMP protocol and set remote ip to 0 & remote wildcard mask to 255 
+	then allow ip protocol set same as above and add them
+verify- click on pc > cmd > type ping server_ip > no replies means packed blocked 
+--------------------------------------------------------------------------------------------
+
+ACL
+router > cli
+router(config)# access-list 1 deny 202.168.20.2 0.0.0.0
+		access-list 1 permit any
+apply acl-	interface Gig 0/0
+		ip access-group 1 out
+verify(pc1)	ping 202.168.20.2 	- unreachable
+(pc2)		show packet send
+--------------------------------------------------------------------------------------------
+extended
+router(config)#	access-list 100 deny tcp host 202.168.10.2 host 202.168.20.2 eq 80
+		access-list 100 permit ip any any
+		interface g 0/1
+		ip access-proup 100 in
+verify	web browser - not shown > ping - allowed
+--------------------------------------------------------------------------------------------	 
